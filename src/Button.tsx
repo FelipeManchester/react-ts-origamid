@@ -1,7 +1,15 @@
 import React from "react";
 
-const Button = () => {
-  return <button>Button</button>;
+type ButtonProps = React.ComponentProps<"button"> & {
+  size?: string;
+};
+
+const Button = ({ size, children, ...props }: ButtonProps) => {
+  return (
+    <button style={{ fontSize: size }} {...props}>
+      {children}
+    </button>
+  );
 };
 
 export default Button;
